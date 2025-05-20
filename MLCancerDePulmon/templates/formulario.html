@@ -13,20 +13,24 @@
 <body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLFvvt5aEik57aD9bT0osX5L9ZRnx0fLJs2A&s);">
     <!--Título-->
     <div class="container-fluid p-5 bg-info text-white text-center">
-        <h1 style="font-size: 5;"><strong>Diagnóstico de cáncer de pulmon</strong></h1>
+        <h1 style="font-size: 5;"><strong>
+            <!--Diagnóstico de cáncer de pulmon-->
+            {% if resultado %}
+                {{ resultado }}
+            {% else %}
+                Diagnóstico de cáncer de pulmon
+            {% endif %}
+        </strong></h1>
         <h3>Ingrese los siguientes valores:</h3>
     </div>
     <div class="container mt-5">
         <div class="row">
             <div class="col p-5"></div>
-            <div class="col p-5 bg-white text-black">
+            <div class="col-4 p-5 bg-white text-black">
                 <!--Formulario-->
                 
                 <form method="POST">
-                    <!--<div class="mb-3 mt-3">
-                      <label for="GENDER">Genero:</label>
-                      <input type="number" class="form-control" id="GENDER" placeholder="1: Masculino, 2: Femenino" name="GENDER">
-                    </div>-->
+                    
                     <p>Género:</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="GENDER" id="GENDERM" value="1">
@@ -42,11 +46,7 @@
                         <input type="number" class="form-control" id="AGE" placeholder="Introducir edad" name="AGE">
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="SMOKING">¿El paciente fuma?</label>
-                        <input type="number" class="form-control" id="SMOKING" placeholder="1: No, 2: Si" name="SMOKING">
-                    </div>-->
-                    <p>¿El paciente fuma?</p>
+                    <p>¿Fuma?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="SMOKING" id="SMOKINGNO" value="1">
                         <label class="form-check-label" for="SMOKINGNO">No</label>
@@ -56,11 +56,7 @@
                         <label class="form-check-label" for="SMOKINGYES">Si</label>
                     </div><br>
                     
-                    <!--<div class="mb-3 mt-3">
-                        <label for="YELLOW_FINGERS">¿El paciente presenta dedos amarillos?</label>
-                        <input type="number" class="form-control" id="YELLOW_FINGERS" placeholder="1: No, 2: Si" name="YELLOW_FINGERS">
-                    </div>-->
-                    <p>¿El paciente presenta dedos amarillos?</p>
+                    <p>¿Presenta dedos amarillos?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="YELLOW_FINGERS" id="YELLOW_FINGERNO" value="1">
                         <label class="form-check-label" for="YELLOW_FINGERSNO">No</label>
@@ -70,11 +66,7 @@
                         <label class="form-check-label" for="YELLOW_FINGERSYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="ANXIETY">¿El paciente presenta ansiedad?:</label>
-                        <input type="number" class="form-control" id="ANXIETY" placeholder="1: No, 2: Si" name="ANXIETY">
-                    </div>-->
-                    <p>¿El paciente presenta ansiedad?</p>
+                    <p>¿Presenta ansiedad?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="ANXIETY" id="ANXIETYNO" value="1">
                         <label class="form-check-label" for="ANXIETYNO">No</label>
@@ -84,11 +76,7 @@
                         <label class="form-check-label" for="ANXIETYYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="PEER_PRESSURE">¿El paciente presenta baja presión?:</label>
-                        <input type="number" class="form-control" id="PEER_PRESSURE" placeholder="1: No, 2: Si" name="PEER_PRESSURE">
-                    </div>-->
-                    <p>¿El paciente presenta baja presión?</p>
+                    <p>¿Presenta baja presión?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="PEER_PRESSURE" id="PEER_PRESSURENO" value="1">
                         <label class="form-check-label" for="PEER_PRESSURENO">No</label>
@@ -98,11 +86,7 @@
                         <label class="form-check-label" for="PEER_PRESSUREYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="CHRONIC_DISEASE">¿El paciente presenta enfermedades crónicas?:</label>
-                        <input type="number" class="form-control" id="CHRONIC_DISEASE" placeholder="1: No, 2: Si" name="CHRONIC_DISEASE">
-                    </div>-->
-                    <p>¿El paciente presenta enfermedades crónicas?</p>
+                    <p>¿Presenta enfermedades crónicas?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="CHRONIC_DISEASE" id="CHRONIC_DISEASENO" value="1">
                         <label class="form-check-label" for="CHRONIC_DISEASENO">No</label>
@@ -112,11 +96,7 @@
                         <label class="form-check-label" for="CHRONIC_DISEASEYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="FATIGUE">¿El paciente presenta fatiga?:</label>
-                        <input type="number" class="form-control" id="FATIGUE" placeholder="1: No, 2: Si" name="FATIGUE">
-                    </div>-->
-                    <p>¿El paciente presenta fatiga?</p>
+                    <p>¿Presenta fatiga?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="FATIGUE" id="FATIGUENO" value="1">
                         <label class="form-check-label" for="FATIGUENO">No</label>
@@ -126,11 +106,7 @@
                         <label class="form-check-label" for="FATIGUEYES">Si</label>
                     </div><br>
                     
-                    <!--<div class="mb-3 mt-3">
-                        <label for="ALLERGY">¿El paciente presenta alergia?:</label>
-                        <input type="number" class="form-control" id="ALLERGY" placeholder="1: No, 2: Si" name="ALLERGY">
-                    </div>-->
-                    <p>¿El paciente presenta alergia?</p>
+                    <p>¿Presenta alergia?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="ALLERGY" id="ALLERGYNO" value="1">
                         <label class="form-check-label" for="ALLERGYNO">No</label>
@@ -140,11 +116,7 @@
                         <label class="form-check-label" for="ALLERGYYES">Si</label>
                     </div><br>
                     
-                    <!--<div class="mb-3 mt-3">
-                        <label for="WHEEZING">¿El paciente presenta silbidos en el pecho?:</label>
-                        <input type="number" class="form-control" id="WHEEZING" placeholder=": No, 2: Si" name="WHEEZING">
-                    </div>-->
-                    <p>¿El paciente presenta silbidos en el pecho?</p>
+                    <p>¿Presenta silbidos en el pecho?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="WHEEZING" id="WHEEZINGNO" value="1">
                         <label class="form-check-label" for="WHEEZINGNO">No</label>
@@ -154,11 +126,7 @@
                         <label class="form-check-label" for="WHEEZINGYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="ALCOHOL_CONSUMING">¿El paciente consume alcohol?:</label>
-                        <input type="number" class="form-control" id="ALCOHOL_CONSUMING" placeholder="1: No, 2: Si" name="ALCOHOL_CONSUMING">
-                    </div>-->
-                    <p>¿El paciente consume alcohol?</p>
+                    <p>¿Consume alcohol?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="ALCOHOL_CONSUMING" id="ALCOHOL_CONSUMINGNO" value="1">
                         <label class="form-check-label" for="ALCOHOL_CONSUMINGNO">No</label>
@@ -168,11 +136,7 @@
                         <label class="form-check-label" for="ALCOHOL_CONSUMINGYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="COUGHING">¿El paciente presenta tos?:</label>
-                        <input type="number" class="form-control" id="COUGHING" placeholder="1: No, 2: Si" name="COUGHING">
-                    </div>-->
-                    <p>¿El paciente presenta tos?</p>
+                    <p>¿Presenta tos?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="COUGHING" id="COUGHINGNO" value="1">
                         <label class="form-check-label" for="COUGHINGNO">No</label>
@@ -182,11 +146,7 @@
                         <label class="form-check-label" for="COUGHINGYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="SHORTNESS_OF_BREATH">¿El paciente presenta falta de aliento?:</label>
-                        <input type="number" class="form-control" id="SHORTNESS_OF_BREATH" placeholder="1: No, 2: Si" name="SHORTNESS_OF_BREATH">
-                    </div>--> 
-                    <p>¿El paciente presenta falta de aliento?</p>
+                    <p>¿Presenta falta de aliento?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="SHORTNESS_OF_BREATH" id="SHORTNESS_OF_BREATHNO" value="1">
                         <label class="form-check-label" for="SHORTNESS_OF_BREATHNO">No</label>
@@ -196,11 +156,7 @@
                         <label class="form-check-label" for="SHORTNESS_OF_BREATHYES">Si</label>
                     </div><br>
 
-                    <!--<div class="mb-3 mt-3">
-                        <label for="SWALLOWING_DIFFICULTY">¿El paciente dificultad para tragar?:</label>
-                        <input type="number" class="form-control" id="SWALLOWING_DIFFICULTY" placeholder="1: No, 2: Si" name="SWALLOWING_DIFFICULTY">
-                    </div>-->
-                    <p>¿El paciente dificultad para tragar?</p>
+                    <p>¿Presenta dificultad para tragar?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="SWALLOWING_DIFFICULTY" id="SWALLOWING_DIFFICULTYNO" value="1">
                         <label class="form-check-label" for="SWALLOWING_DIFFICULTYNO">No</label>
@@ -210,11 +166,7 @@
                         <label class="form-check-label" for="SWALLOWING_DIFFICULTYYES">Si</label>
                     </div><br>
                     
-                    <!--<div class="mb-3 mt-3">
-                        <label for="CHEST_PAIN">¿El paciente presenta dolor en el pecho?:</label>
-                        <input type="number" class="form-control" id="CHEST_PAIN" placeholder="1: No, 2: Si" name="CHEST_PAIN">
-                    </div>-->
-                    <p>¿El paciente presenta dolor en el pecho?</p>
+                    <p>¿Presenta dolor en el pecho?</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="CHEST_PAIN" id="CHEST_PAINNO" value="1">
                         <label class="form-check-label" for="CHEST_PAINNO">No</label>
@@ -226,14 +178,6 @@
                     
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
-
-                <!--Respuesta del algoritmo-->
-                {% if resultado %}
-                <br>
-                <h4>
-                    {{ resultado }} 
-                </h4>
-                {% endif %}
             </div>
             <div class="col p-5"></div>
         </div>
